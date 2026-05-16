@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Henrique De Sousa Vieira — Desenvolvedor Full Stack</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #444;
+      --accent: #1e3a5f;
+      --border: #ccc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--text);
+      background: #e8e8e8;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      padding: 0.48in 0.58in 0.44in;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 12px;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0 0 5px;
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .headline {
+      margin: 0 0 8px;
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .contact-line {
+      margin: 0 0 4px;
+      font-size: 10.25pt;
+      line-height: 1.55;
+    }
+
+    .contact-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 7px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title-row h2 {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .github-note {
+      font-size: 9.5pt;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.35;
+      flex-shrink: 0;
+    }
+
+    .github-note a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .projects h2 {
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 7px;
+      padding-bottom: 4px;
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { margin: 0 0 5px; }
+
+    .summary {
+      line-height: 1.48;
+    }
+
+    .skills p {
+      margin-bottom: 5px;
+      line-height: 1.44;
+    }
+
+    .skills strong { font-weight: 700; }
+
+    .entry { margin-bottom: 4px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 3px;
+    }
+
+    .entry-date {
+      font-size: 10pt;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .entry-subtitle {
+      margin: 0 0 7px;
+      font-style: italic;
+      font-size: 10.5pt;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    li {
+      margin-bottom: 5px;
+      line-height: 1.42;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .projects .entry {
+      margin-bottom: 6px;
+    }
+
+    .projects .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-line {
+      margin: 0;
+      line-height: 1.46;
+    }
+
+    .project-name { font-weight: 700; }
+
+    .project-tech {
+      color: var(--muted);
+      font-size: 10pt;
+    }
+
+    .edu-line,
+    .certs-line {
+      margin-bottom: 6px;
+      line-height: 1.44;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 32px;
+    }
+
+    .languages p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .two-col > section {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      body {
+        font-size: 10.1pt;
+        line-height: 1.4;
+      }
+
+      h1 { font-size: 18pt; }
+      .headline { font-size: 11pt; }
+      li { margin-bottom: 5px; }
+      .projects .entry { margin-bottom: 6px; }
+
+      .page {
+        box-shadow: none;
+        width: 8.5in;
+        height: 11in;
+        min-height: 11in;
+        margin: 0;
+        padding: 0.48in 0.58in 0.44in;
+      }
+
+      a { color: var(--text); text-decoration: none; }
+
+      @page {
+        size: letter;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Rafael Henrique De Sousa Vieira</h1>
+      <p class="headline">Desenvolvedor Full Stack · Líder · React · TypeScript · C#</p>
+      <p class="contact-line">Sorocaba, SP | (11) 94710-0007</p>
+      <p class="contact-line">
+        <a href="mailto:rafaelvieira1720@gmail.com">rafaelvieira1720@gmail.com</a> |
+        <a href="https://linkedin.com/in/rafael-vieira1720">linkedin.com/in/rafael-vieira1720</a> |
+        <a href="https://github.com/RafaelHDSV">github.com/RafaelHDSV</a> |
+        <a href="https://rafaelhdsv.vercel.app">rafaelhdsv.vercel.app</a>
+      </p>
+    </header>
+
+    <div class="page-body">
+    <section>
+      <h2>Resumo Profissional</h2>
+      <p class="summary">
+        Desenvolvedor Full Stack com perfil <strong>hands-on</strong> e experiência em
+        <strong>liderança</strong> de equipe. Atuo de ponta a ponta no ecossistema
+        <strong>JavaScript</strong> — interfaces em React e TypeScript, APIs e persistência com
+        Node.js, MongoDB e SQL — além de projetos em <strong>C# (.NET)</strong>. Valorizo boas
+        práticas, organização do time, sustentação de sistemas em produção e decisões técnicas
+        alinhadas ao negócio. Perfil colaborativo e orientado a resultados, com aprendizado contínuo
+        e troca de conhecimento no time.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h2>Competências Técnicas</h2>
+      <p><strong>Front-end:</strong> React.js, TypeScript, JavaScript, HTML5, CSS3, Sass, Less, Ant Design, responsividade</p>
+      <p><strong>Back-end e dados:</strong> Node.js, APIs REST, C# (.NET), MongoDB, SQL</p>
+      <p><strong>Liderança e engenharia:</strong> liderança hands-on, code review, Pull Requests, padrões de código, sustentação de legado, GitHub Projects</p>
+      <p><strong>Ferramentas:</strong> Git, GitHub, Jira, VS Code, Cursor, Figma, Notion · <strong>Automação e IA:</strong> n8n, agentes de IA</p>
+    </section>
+
+    <section>
+      <h2>Experiência Profissional</h2>
+      <article class="entry">
+        <div class="entry-header">
+          <strong>AGX Software</strong>
+          <span class="entry-date">Jul 2024 – Presente</span>
+        </div>
+        <p class="entry-subtitle">
+          Desenvolvedor Full Stack Júnior III + Líder de Equipe
+        </p>
+        <ul>
+          <li>
+            Evoluí desde estágio em front-end (Jul/2024) até Desenvolvedor Full Stack Júnior III,
+            com 3 promoções em tempo recorde; atuo com <strong>JavaScript</strong>, boas práticas e
+            entregas alinhadas ao negócio.
+          </li>
+          <li>
+            Lidero equipe de <strong>4 desenvolvedores</strong> com acompanhamento próximo: organização,
+            code review, definição de padrões e apoio a decisões técnicas via
+            <strong>GitHub</strong> e <strong>GitHub Projects</strong>.
+          </li>
+          <li>
+            Desenvolvo novas funcionalidades e sustento sistemas em produção (incluindo stack legada
+            com <strong>Ant Design</strong>), com <strong>React</strong>, <strong>TypeScript</strong> e
+            <strong>Sass</strong>, da concepção à publicação, com foco em performance e UX.
+          </li>
+          <li>
+            Atuo no back-end com <strong>Node.js</strong>, <strong>APIs REST</strong>,
+            <strong>MongoDB</strong> e <strong>SQL</strong>, integrando interface, regras de negócio e dados.
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="projects">
+      <div class="section-title-row">
+        <h2>Projetos Selecionados</h2>
+        <span class="github-note">
+          <a href="https://github.com/RafaelHDSV">github.com/RafaelHDSV</a> (71+ projetos públicos)
+        </span>
+      </div>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">Deprecated-Finder</span> —
+          Extensão VS Code/Cursor: detecta símbolos depreciados no workspace e corrige ocorrências
+          em lote com base na documentação do autor.
+          <span class="project-tech">| TypeScript</span>
+        </p>
+      </article>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">MedIT</span> <span class="project-tech">(TCC)</span> —
+          Solução digital para organização do atendimento, redução de gargalos operacionais e suporte
+          informacional a profissionais de saúde.
+          <span class="project-tech">| TypeScript, React</span>
+        </p>
+      </article>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">Repo-Workspace</span> —
+          Gerencia repositórios irmãos: instala dependências (yarn) e executa <em>yarn dev</em> em
+          paralelo, com seleção interativa ou CLI.
+          <span class="project-tech">| JavaScript</span>
+        </p>
+      </article>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">TechMoto</span> —
+          Sistema para gestão de estoque de motos e interesse de clientes, em ambiente similar a
+          marketplace.
+          <span class="project-tech">| C#, .NET</span>
+        </p>
+      </article>
+    </section>
+
+    <div class="two-col">
+      <section>
+        <h2>Formação Acadêmica</h2>
+        <p class="edu-line">
+          <strong>Athon Ensino Superior (Anhembi Morumbi)</strong> — ADS, 2024–2026 · Sorocaba, SP
+        </p>
+        <p class="edu-line">
+          <strong>ETEC Rosa Perrone Scavone</strong> — Técnico em Desenvolvimento de Sistemas, 2021–2024 · Itatiba, SP
+        </p>
+      </section>
+
+      <section>
+        <h2>Certificações</h2>
+        <p class="certs-line">Oracle OCI Foundations 2025 · MongoDB Node.js Developer Path · Web Frontend Completo (Udemy, 2026)</p>
+        <p class="certs-line">Automação com n8n e Agentes de IA (Udemy, 2026)</p>
+      </section>
+    </div>
+
+    <section class="languages">
+      <h2>Idiomas</h2>
+      <p><strong>Português:</strong> nativo &nbsp;|&nbsp; <strong>Inglês:</strong> intermediário (leitura de documentação técnica e comunicação profissional)</p>
+    </section>
+    </div>
+  </main>
+</body>
+</html>
