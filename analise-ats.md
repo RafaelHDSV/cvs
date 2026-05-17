@@ -1,9 +1,9 @@
 # Análise ATS — Currículo (PDF)
 
-**Arquivo analisado:** `CVs/Currículo.pdf` (versão atual, texto selecionável)  
-**Fonte para edição:** `CVs/Currículo.html`  
+**Arquivo analisado:** `CVs/Currículo.pdf` (versão atual)  
+**Fonte de edição:** `CVs/Currículo.html`  
 **Data da análise:** maio de 2026  
-**Contexto:** notas anteriores de **42** e **83** — a nota baixa foi explicada por PDF antigo **sem camada de texto** (não pesquisável)
+**Método:** extração automática de texto (simulação de leitura ATS) + revisão de conteúdo
 
 ---
 
@@ -11,252 +11,243 @@
 
 | Pergunta | Resposta |
 |----------|----------|
-| O currículo está bom para ATS? | **Sim**, na versão atual do PDF. Conteúdo e formato são adequados para dev Full Stack no BR. |
-| O PDF está legível para sistemas? | **Sim** — extração automática confirmada (~3.000 caracteres, 1 página). |
-| Por que antes deu 42? | PDF anterior exportado como **imagem** (~806 KB, 0 texto). ATS lia página em branco. |
-| Por que 83 em outro teste? | Outra ferramenta, outro arquivo (HTML) ou vaga colada — não contradiz o PDF novo. |
-| Faixa esperada agora | **72–88** com PDF atual + descrição da vaga no revisor; **55–70** sem vaga de referência. |
-| Nota única “oficial”? | **Não.** Use revisores como checklist, não como veredito final. |
+| O PDF está apto para ATS? | **Sim.** Texto selecionável, 1 página, ~3.065 caracteres extraídos. |
+| O currículo está bem para dev Full Stack no BR? | **Sim.** Stack, liderança e processo bem representados. |
+| Por que antes deu 42 e depois 83? | PDF antigo **sem texto** (~806 KB) vs. PDF atual **legível** (~104 KB); revisores e critérios diferentes. |
+| Nota única confiável? | **Não.** Use como checklist; teste sempre com a **vaga colada**. |
+| Faixa estimada (PDF atual + vaga) | **75–90** |
+| Faixa estimada (PDF atual, sem vaga) | **65–80** |
 
-**Conclusão:** o problema era a **exportação**, não o conteúdo. Com o `Currículo.pdf` atual, o ATS consegue ler nome, contato, skills, AGX, projetos e formação. Foque em **match por vaga** e nos pequenos ajustes de layout listados abaixo.
-
----
-
-## Diagnóstico do `Currículo.pdf` atual
-
-Teste de extração de texto (mesmo tipo de leitura que muitos ATS fazem):
-
-| Verificação | PDF antigo (errado) | PDF atual (correto) |
-|-------------|---------------------|---------------------|
-| Páginas | 1 | **1** |
-| Texto extraído | **0 caracteres** | **~3.031 caracteres** |
-| Tamanho do arquivo | ~806 KB | **~100 KB** |
-| Pesquisa no leitor (Ctrl+F) | Não funcionava | **Funciona** |
-| Pronto para candidatura | Não | **Sim** |
-
-**Como manter assim:** exportar sempre a partir do `Currículo.html` com **Ctrl+P → Salvar como PDF** (Chrome/Edge), escala 100%, 1 página. Evitar exportações que rasterizam a página inteira em imagem.
-
-### Teste rápido antes de cada envio
-
-1. Abrir o PDF → **Ctrl+F** → buscar `React` ou `AGX`.  
-2. Selecionar um parágrafo → **Ctrl+C** → colar no Bloco de Notas.  
-3. Se o texto colado for legível, o ATS tende a ler da mesma forma.
+**Conclusão:** o currículo evoluiu de um problema de **exportação** para um documento **tecnicamente sólido para ATS**. O foco agora é **match por vaga** e pequenos refinamentos opcionais de layout (GitHub na linha de projetos, colunas do rodapé).
 
 ---
 
-## O que o ATS extrai do seu PDF (ordem real)
+## Diagnóstico técnico do PDF
 
-Trecho linearizado a partir do arquivo atual — útil para entender como o sistema “vê” o currículo:
+| Indicador | Resultado | Interpretação |
+|-----------|-----------|---------------|
+| Páginas | 1 | Ideal para triagem |
+| Texto extraído | ~3.065 caracteres | Conteúdo completo indexável |
+| Tamanho do arquivo | ~104 KB | Típico de PDF com camada de texto |
+| Pesquisa (Ctrl+F) | Funciona | Mesmo comportamento esperado do ATS |
+| Acentuação PT-BR | Preservada | liderança, persistência, etc. |
 
-```text
-Rafael Henrique De Sousa Vieira
-Desenvolvedor Full Stack · Líder · React · TypeScript · C#
-Sorocaba, SP | (11) 94710-0007
-rafaelvieira1720@gmail.com | linkedin.com/in/rafael-vieira1720 | ...
+### Histórico (por que as notas variaram)
 
-RESUMO PROFISSIONAL
-Desenvolvedor Full Stack com perfil hands-on e experiência em liderança de equipe...
-JavaScript — React, TypeScript, Node.js, MongoDB, SQL — C# (.NET)...
+| Versão | Sintoma | Efeito no ATS |
+|--------|---------|---------------|
+| PDF antigo (~806 KB) | Não dava para buscar palavras | Extração vazia → nota **muito baixa (~42)** |
+| PDF atual (~104 KB) | Texto selecionável | Keywords indexadas → nota **compatível com ~83** em revisores que leem bem |
 
-COMPETÊNCIAS TÉCNICAS
-Front-end: React.js, TypeScript, JavaScript, HTML5, CSS3, Sass, Less, Ant Design...
-Back-end e dados: Node.js, APIs REST, C# (.NET), MongoDB, SQL
-Liderança e engenharia: liderança hands-on, code review, Pull Requests...
-...
-
-EXPERIÊNCIA PROFISSIONAL
-AGX SoftwareJul 2024 – Presente
-Desenvolvedor Full Stack Júnior III + Líder de Equipe
-[bullets da AGX]
-
-PROJETOS SELECIONADOSgithub.com/RafaelHDSV (71+ projetos públicos)
-Deprecated-Finder — ...
-MedIT (TCC) — ...
-...
-
-FORMAÇÃO ACADÊMICA | CERTIFICAÇÕES (colunas)
-IDIOMAS
-```
-
-Tudo essencial está presente para busca por palavra-chave.
+**Regra de ouro:** após cada edição no HTML, exportar PDF e testar **Ctrl+F** por `React`, `Scrum` e `AGX`.
 
 ---
 
-## Pontos fortes para ATS (confirmados no PDF)
+## O que o ATS lê do seu PDF (estrutura)
 
-### Estrutura
+Ordem aproximada da extração linear:
 
-- **1 página** — ideal para triagem rápida.  
-- Seções com títulos claros em português (aparecem em maiúsculas na extração: `RESUMO PROFISSIONAL`, `EXPERIÊNCIA PROFISSIONAL`, etc.).  
-- **Experiência em bullets** — quatro itens com verbos de ação (Evoluí, Lidero, Desenvolvo, Atuo).  
-- **Datas** legíveis: `Jul 2024 – Presente`.  
-- **Localização:** Sorocaba, SP.  
-- **Links** em texto: e-mail, LinkedIn, GitHub, portfólio.
+1. **Identificação** — nome, headline, Sorocaba, contato, links  
+2. **Resumo profissional** — Full Stack, hands-on, liderança, JavaScript, React, TypeScript, Node.js, MongoDB, SQL, C#, Scrum, Jira  
+3. **Competências** — 4 blocos (front, back, liderança/processo, ferramentas + IA)  
+4. **Experiência** — AGX Software \| Jul 2024 - Presente, cargo, 4 bullets  
+5. **Projetos** — Deprecated-Finder, MedIT (TCC), Repo-Workspace  
+6. **Formação + certificações** — duas colunas no layout visual  
+7. **Idiomas** — PT nativo, EN intermediário  
 
-### Palavras-chave (mercado dev / liderança júnior)
+### Correções já refletidas no PDF
 
-| Área | Termos detectados no PDF |
-|------|--------------------------|
-| Stack web | JavaScript, TypeScript, React, Node.js, HTML5, CSS3, Sass, Less |
-| Dados / API | APIs REST, MongoDB, SQL |
-| Outras | C#, .NET, Ant Design |
-| Processo | Git, GitHub, Pull Requests, code review, GitHub Projects |
-| Liderança | liderança, hands-on, 4 desenvolvedores, padrões de código |
-| Legado / entrega | sustentação de legado, sistemas em produção, boas práticas |
-| Projetos | Deprecated-Finder, MedIT (TCC), Repo-Workspace, TechMoto |
-| Certificações | Oracle OCI, MongoDB, Web Frontend, n8n, agentes de IA |
-
-### Conteúdo que ranqueia bem
-
-- Progressão na **AGX** (estágio → Júnior III) + **3 promoções**.  
-- **Liderança de 4 desenvolvedores** — diferencial para vagas com componente de líder.  
-- Projetos com **stack explícita** (`| TypeScript`, `| C#, .NET`).  
-- Formação **ADS** + técnico ETEC.
+- `AGX Software | Jul 2024 - Presente` (não cola mais como `AGX SoftwareJul`)  
+- Separadores ASCII (`|`, `-`) em vez de `·` e `–`  
+- **Scrum**, **Tailwind CSS**, **CI/CD**, **Postman** presentes  
+- **TechMoto** removido (mais espaço visual no rodapé; C# permanece em competências)
 
 ---
 
-## Pontos de atenção (PDF atual — melhorias opcionais)
+## Palavras-chave detectadas no PDF
 
-Nada disso invalida o currículo; são refinamentos se quiser maximizar parsers mais rígidos.
+### Stack e desenvolvimento
 
-### 1. Textos “colados” na extração (baixo impacto)
+| Categoria | Termos |
+|-----------|--------|
+| Front-end | React.js, TypeScript, JavaScript, HTML5, CSS3, **Tailwind CSS**, Sass, Less, Ant Design, responsividade |
+| Back-end / dados | Node.js, **APIs REST**, C# (.NET), MongoDB, SQL, Python |
+| Ferramentas | Git, GitHub, **Postman**, Jira, VS Code, Cursor, Figma, Notion, Yarn |
+| Automação / IA | n8n, agentes de IA |
 
-O parser às vezes junta blocos vizinhos:
+### Processo, liderança e entrega
 
-| No PDF visual | Na extração ATS |
-|---------------|-----------------|
-| AGX Software · Jul 2024 | `AGX SoftwareJul 2024` |
-| Projetos Selecionados · github.com/... | `PROJETOS SELECIONADOSgithub.com/...` |
+| Categoria | Termos |
+|-----------|--------|
+| Metodologia | **Scrum**, metodologias ágeis, sprints, Jira |
+| Engenharia | code review, Pull Requests, **CI/CD**, padrões de código, sustentação de legado |
+| Liderança | liderança hands-on, **4 desenvolvedores**, GitHub Projects |
+| Resultado | 3 promoções, entregas alinhadas ao negócio |
 
-**Por quê:** layout com flex (data à direita, GitHub alinhado ao título).  
-**Mitigação:** no HTML, quebrar linha ou inserir espaço fixo entre empresa e data; GitHub em linha própria abaixo do título de projetos.
+### Projetos e formação
 
-### 2. Colunas Formação + Certificações (baixo/médio)
-
-Em duas colunas, o ATS pode intercalar linhas. No seu PDF, as seções ainda aparecem completas, mas datas como `2024–` / `2026` podem quebrar em linhas separadas.
-
-**Mitigação:** se algum revisor reclamar de “educação incompleta”, usar versão **1 coluna** só para aquele portal (DOCX opcional).
-
-### 3. Quebra de linha em “C# (.NET)” (muito baixo)
-
-No resumo, `C#` e `(.NET)` podem cair em linhas diferentes na extração. As duas partes ainda estão no texto — risco mínimo.
-
-### 4. Bullets sem marcador “•” no texto bruto
-
-Os itens da AGX são lidos como parágrafos separados, não como lista formal. A maioria dos ATS aceita; o conteúdo das frases permanece indexável.
-
-### 5. Inglês “intermediário” vs vaga exigindo avançado
-
-Não é falha de PDF — é **match de requisito**. Para vagas internacionais, ajustar só se for honesto.
-
-### 6. Match depende da vaga
-
-Revisores sem descrição da vaga costumam dar nota menor. Sempre testar com o **texto da vaga colado**.
+| Item | Destaque ATS |
+|------|----------------|
+| Deprecated-Finder | TypeScript, VS Code/Cursor, extensão |
+| MedIT (TCC) | TypeScript, React, saúde |
+| Repo-Workspace | JavaScript, yarn, CLI |
+| ADS 2024-2026 | Athon / Anhembi Morumbi |
+| ETEC 2021-2024 | Técnico em Desenvolvimento de Sistemas |
+| Certificações | Oracle OCI, MongoDB Path, Git (Ada Tech), Web Frontend (Udemy), n8n + IA |
 
 ---
 
-## Checklist ATS — `Currículo.pdf` atual
+## Match com tipos de vaga
+
+### Desenvolvedor Full Stack / Front-end (ex.: AGX, vagas React)
+
+| Requisito comum | No PDF? |
+|-----------------|---------|
+| React | Sim |
+| TypeScript | Sim |
+| JavaScript | Sim |
+| APIs REST | Sim |
+| Git / PR / code review | Sim |
+| Tailwind CSS | Sim |
+| Performance / UX | Sim (bullet AGX) |
+| Next.js | Não (omitido de propósito no HTML atual) |
+| Inglês avançado | Não (intermediário declarado) |
+
+### Líder técnico / hands-on (ex.: Alutal)
+
+| Requisito comum | No PDF? |
+|-----------------|---------|
+| Liderança de equipe | Sim (4 devs) |
+| React + JavaScript | Sim |
+| C# / .NET | Sim (competências; sem projeto TechMoto) |
+| SQL | Sim |
+| GitHub | Sim |
+| Scrum / ágil | Sim |
+| Sustentação de legado | Sim |
+
+---
+
+## Pontos fortes (ATS + recrutador)
+
+1. **Densidade de keywords** sem parecer lista solta — skills categorizadas + repetição na experiência.  
+2. **Uma empresa com narrativa de evolução** — estágio → Júnior III, 3 promoções.  
+3. **Liderança mensurável** — equipe de 4 pessoas.  
+4. **Projetos com stack explícita** e MedIT marcado como TCC.  
+5. **Certificações nomeadas** com instituição e ano.  
+6. **PDF tecnicamente válido** para parsers modernos.  
+7. **Headline alinhada** — Full Stack, Líder, React, TypeScript, C#.
+
+---
+
+## Pontos de atenção (opcionais)
+
+Nenhum impede candidatura; são refinamentos se quiser maximizar score.
+
+| Item | Situação no PDF | Sugestão |
+|------|-----------------|----------|
+| `PROJETOS SELECIONADOSgithub.com/...` | Título e URL colados na extração | GitHub em linha separada abaixo do título |
+| Formação + certificações | Colunas podem quebrar datas (`2024-` / `2026`) | Aceitável; DOCX 1 coluna só se algum portal falhar |
+| Apenas 1 empregador | Normal para sua senioridade | Manter bullet de evolução interna |
+| Next.js | Ausente | Incluir só se for verdade no dia a dia |
+| Inglês intermediário | Honesto | Pode pesar em vagas com inglês avançado obrigatório |
+| C# sem projeto dedicado | TechMoto removido | C# ainda aparece em skills e resumo; ok para Full Stack |
+
+---
+
+## Checklist ATS — versão atual
 
 | Critério | Status |
 |----------|--------|
-| PDF com texto selecionável | ✅ Confirmado |
+| PDF com texto selecionável | ✅ |
 | 1 página | ✅ |
-| Tamanho de arquivo saudável (~100 KB) | ✅ |
-| Nome, e-mail, telefone | ✅ |
-| Cidade/estado | ✅ |
-| LinkedIn / GitHub / portfólio em texto | ✅ |
-| Seções reconhecíveis | ✅ |
-| Experiência com datas e empresa | ✅ |
-| Skills dedicadas + repetição na experiência | ✅ |
-| Projetos + formação + certificações | ✅ |
-| Sem imagem-only / scan | ✅ |
-| Colunas no rodapé | ⚠️ Aceitável; opcional simplificar |
-| Textos colados (AGX/data, Projetos/GitHub) | ⚠️ Opcional corrigir no HTML |
-| Match com palavras da vaga | ⚠️ Adaptar por anúncio |
+| Tamanho ~100 KB (texto, não imagem) | ✅ |
+| Nome, telefone, e-mail, cidade | ✅ |
+| LinkedIn, GitHub, portfólio | ✅ |
+| Seções com títulos claros (PT-BR) | ✅ |
+| Experiência com empresa, cargo, datas | ✅ |
+| Bullets com ação e métricas | ✅ |
+| Seção de competências rica | ✅ |
+| Scrum / Jira / CI/CD / Postman / Tailwind | ✅ |
+| Projetos relevantes | ✅ |
+| Formação + certificações | ✅ |
+| Idiomas | ✅ |
+| Match depende da vaga colada no revisor | ⚠️ |
+| GitHub colado ao título de projetos | ⚠️ |
 
 ---
 
-## Pontuação estimada (PDF atual)
+## Pontuação estimada por cenário
 
-| Cenário | Faixa provável |
-|---------|----------------|
-| PDF antigo (sem texto) — referência | 15–45 ← explica **~42** |
-| **PDF atual**, revisor genérico, sem vaga | **58–75** |
-| **PDF atual** + vaga colada + keywords alinhadas | **72–88** |
-| DOCX 1 coluna (mesmo conteúdo) | 78–92 (se algum portal falhar) |
+| Cenário | Faixa |
+|---------|-------|
+| PDF antigo sem texto (referência histórica) | 15–45 |
+| **PDF atual**, revisor sem descrição de vaga | **65–80** |
+| **PDF atual** + vaga colada + ajuste pontual de keywords | **75–90** |
+| DOCX linear (fallback para portais difíceis) | 80–92 |
 
-Refaça os dois revisores usando **somente o PDF novo** e a **mesma vaga** — a comparação passa a ser confiável.
+Para comparar revisores de forma justa: **mesmo PDF + mesma vaga + mesma ferramenta**.
 
 ---
 
-## Prioridades de melhoria (pós-correção do PDF)
+## Prioridades de melhoria
 
 ### Manutenção (sempre)
 
-1. Exportar PDF só via **HTML → Ctrl+P → Salvar como PDF**.  
-2. Validar **Ctrl+F** antes de enviar.  
-3. Enviar **`Currículo.pdf`** nos portais (não HTML).
+1. Editar `Currículo.html` → **Ctrl+P** → salvar `Currículo.pdf`.  
+2. Validar **Ctrl+F** antes de cada candidatura.  
+3. Enviar **PDF**, nunca HTML, nos portais.
 
-### Alto impacto (conteúdo / match)
+### Match por vaga (5–10 min)
 
-4. Nos revisores ATS: upload do **PDF atual** + **descrição completa da vaga**.  
-5. Incluir na experiência ou resumo **5–10 keywords** da vaga que forem verdadeiras.  
-6. Para vagas **liderança** (ex. Alutal): reforçar `liderança`, `React`, `C#`, `SQL`, `GitHub`, `sustentação`.  
-7. Para vagas **front-end**: reforçar `React`, `TypeScript`, `JavaScript`, `APIs REST`, `code review`, `Pull Requests`.
+4. Colar descrição da vaga no revisor ATS.  
+5. Incluir no HTML apenas keywords **verdadeiras** que faltarem (ex.: Kanban, Vitest, .NET Core).  
+6. Reexportar PDF e retestar.
 
-### Médio (layout no HTML → novo PDF)
+### Layout (opcional, se algum revisor falhar)
 
-8. Separar `AGX Software` e `Jul 2024 – Presente` (evitar `AGX SoftwareJul`).  
-9. GitHub em linha abaixo de “Projetos Selecionados”.  
-10. Se nota de “educação” falhar em algum site: versão 1 coluna em Formação/Certificações.
+7. Linha dedicada: `GitHub: github.com/RafaelHDSV (71+ projetos públicos)`.  
+8. Versão **1 coluna** para Formação + Certificações (DOCX alternativo).
 
-### Baixo
+### Conteúdo (só se for real)
 
-11. `|` e `-` ASCII em vez de `·` e `–` se algum revisor mostrar caracteres estranhos.  
-12. Nome de arquivo sem acento: `Rafael_Vieira_Curriculo_FullStack.pdf`.
-
----
-
-## O currículo está bom?
-
-| Leitor | Avaliação com PDF atual |
-|--------|-------------------------|
-| **ATS (triagem automática)** | **Bom** — texto extraível, keywords sólidas |
-| **Recrutador / tech lead** | **Bom** — 1 página, claro, liderança e stack visíveis |
-| **Vaga internacional (inglês avançado)** | **Médio** — conteúdo ok; gap pode ser idioma |
-| **Vaga sênior / Tech Lead formal** | **Médio** — liderança forte para júnior; título “Líder” é adequado |
+9. **Next.js** — se já estiver em uso na AGX.  
+10. **Testes automatizados** (Jest/Vitest) — se fizer parte da rotina.  
+11. Projeto **C#** de volta — se quiser reforçar vagas .NET (ex. TechMoto em uma linha).
 
 ---
 
-## Como testar ATS de forma confiável (roteiro)
+## Avaliação por público
 
-1. Abrir `CVs/Currículo.pdf` → confirmar busca por `React`.  
-2. Escolher **uma vaga** alvo.  
-3. No revisor: upload **deste PDF** + colar descrição da vaga.  
-4. Anotar keywords faltando (só as que você realmente tem).  
-5. Ajustar `Currículo.html` → exportar **novo** PDF → repetir teste.  
-6. Comparar os dois revisores **no mesmo PDF** (não misturar com HTML).
+| Público | Avaliação |
+|---------|-----------|
+| ATS (triagem automática) | **Muito bom** com PDF atual |
+| Recrutador / tech lead | **Muito bom** — claro, 1 página, liderança visível |
+| Vaga front-end com Tailwind + React + Git | **Alto match** |
+| Vaga com Scrum + Jira + liderança júnior | **Alto match** |
+| Vaga internacional (inglês fluente obrigatório) | **Médio** — gap de idioma |
+| Vaga sênior / Tech Lead formal | **Médio-alto** — liderança forte; título “Líder” (não Tech Lead) é adequado |
 
 ---
 
-## Adaptação rápida por vaga (5 min)
+## Roteiro de teste ATS (recomendado)
 
-1. Copiar requisitos obrigatórios.  
-2. Marcar ✓ (já no PDF) / ✗ (faltando).  
-3. Inserir ✗ verdadeiros no HTML.  
-4. Exportar PDF → validar Ctrl+F.  
-5. Reenviar ao revisor com vaga colada.
-
-**Já coberto no PDF atual:** React, TypeScript, JavaScript, Node.js, MongoDB, SQL, Git, GitHub, REST, liderança, code review, legado, Ant Design, C#/.NET.
+```
+1. Abrir Currículo.pdf → Ctrl+F "Tailwind" → deve encontrar
+2. No revisor: upload do PDF (não HTML)
+3. Colar descrição completa da vaga
+4. Anotar keywords faltando
+5. Ajustar HTML somente com fatos reais
+6. Reexportar PDF → repetir passo 2
+```
 
 ---
 
 ## Arquivos na pasta `CVs/`
 
-| Arquivo | Uso |
-|---------|-----|
+| Arquivo | Função |
+|---------|--------|
 | `Currículo.html` | Edição e exportação |
-| `Currículo.pdf` | **Envio em candidaturas** (versão atual OK) |
+| `Currículo.pdf` | **Envio em candidaturas** (versão validada nesta análise) |
 | `Currículo_2025.*` | Histórico / log |
 | `analise-ats.md` | Este documento |
 
@@ -270,4 +261,4 @@ Refaça os dois revisores usando **somente o PDF novo** e a **mesma vaga** — a
 
 ---
 
-*Análise baseada no `Currículo.pdf` com texto selecionável (~3.031 caracteres extraídos, 1 página, ~100 KB). O PDF anterior sem camada de texto não deve ser usado para novos testes ou candidaturas.*
+*Análise baseada em extração de `Currículo.pdf` em maio de 2026: 1 página, ~3.065 caracteres, ~104 KB. Revisores ATS automáticos são indicativos, não garantia de aprovação.*
