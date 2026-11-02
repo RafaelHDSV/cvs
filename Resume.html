@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rafael Henrique De Sousa Vieira - Full Stack Developer</title>
+  <style>
+    :root {
+      --text: #1a1a1a;
+      --muted: #444;
+      --accent: #1e3a5f;
+      --border: #ccc;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 16px;
+      font-family: Calibri, "Segoe UI", Arial, sans-serif;
+      font-size: 10.5pt;
+      line-height: 1.45;
+      color: var(--text);
+      background: #e8e8e8;
+    }
+
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto;
+      padding: 0.42in 0.56in 0.38in;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 12px;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    h1 {
+      margin: 0 0 5px;
+      font-size: 20pt;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .headline {
+      margin: 0 0 8px;
+      font-size: 11.5pt;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .contact-line {
+      margin: 0 0 4px;
+      font-size: 10.25pt;
+      line-height: 1.55;
+    }
+
+    .contact-line:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-line a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-line a:hover {
+      text-decoration: underline;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin: 0 0 7px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title-row h2 {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .github-note {
+      font-size: 9.5pt;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.35;
+      flex-shrink: 0;
+    }
+
+    .github-note a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .projects h2 {
+      margin: 0;
+    }
+
+    section {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 7px;
+      padding-bottom: 4px;
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    p { margin: 0 0 5px; }
+
+    .summary {
+      line-height: 1.48;
+    }
+
+    .skills p {
+      margin-bottom: 5px;
+      line-height: 1.44;
+    }
+
+    .skills strong { font-weight: 700; }
+
+    .entry { margin-bottom: 4px; }
+    .entry:last-child { margin-bottom: 0; }
+
+    .entry-header {
+      margin: 0 0 3px;
+    }
+
+    .entry-date {
+      font-size: 10pt;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .entry-subtitle {
+      margin: 0 0 7px;
+      font-style: italic;
+      font-size: 10.5pt;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.2em;
+    }
+
+    li {
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    .projects .entry {
+      margin-bottom: 6px;
+    }
+
+    .projects .entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-line {
+      margin: 0;
+      line-height: 1.46;
+    }
+
+    .project-name { font-weight: 700; }
+
+    .project-tech {
+      color: var(--muted);
+      font-size: 10pt;
+    }
+
+    .edu-line,
+    .certs-line {
+      margin-bottom: 6px;
+      line-height: 1.44;
+    }
+
+    .two-col {
+      display: flex;
+      gap: 32px;
+    }
+
+    .languages p {
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .two-col > section {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media print {
+      html, body {
+        width: 8.5in;
+        height: 11in;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+      }
+
+      body {
+        font-size: 10.1pt;
+        line-height: 1.4;
+      }
+
+      h1 { font-size: 18pt; }
+      .headline { font-size: 11pt; }
+      li { margin-bottom: 4px; }
+      .projects .entry { margin-bottom: 5px; }
+
+      .page {
+        box-shadow: none;
+        width: 8.5in;
+        height: 11in;
+        min-height: 11in;
+        margin: 0;
+        padding: 0.42in 0.56in 0.38in;
+      }
+
+      a { color: var(--text); text-decoration: none; }
+
+      @page {
+        size: letter;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>Rafael Henrique De Sousa Vieira</h1>
+      <p class="headline">Full Stack Developer | Team Lead | React | TypeScript | Node.js | REST APIs | C#</p>
+      <p class="contact-line">Sorocaba, SP, Brazil | +55 (11) 94710-0007</p>
+      <p class="contact-line">
+        <a href="mailto:rafaelvieira1720@gmail.com">rafaelvieira1720@gmail.com</a> |
+        <a href="https://linkedin.com/in/rafael-vieira1720">linkedin.com/in/rafael-vieira1720</a> |
+        <a href="https://github.com/RafaelHDSV">github.com/RafaelHDSV</a> |
+        <a href="https://getvieira.com">getvieira.com</a>
+      </p>
+    </header>
+
+    <div class="page-body">
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">
+        I build and maintain <strong>full stack</strong> web applications (React, TypeScript,
+        <strong>Node.js</strong>, <strong>REST APIs</strong>, MongoDB, and SQL) at
+        <strong>AGX Software</strong>, leading a team of <strong>4 developers</strong> with
+        <strong>Scrum</strong>/<strong>Jira</strong>. Promoted <strong>4 times</strong> (from intern to Mid-level I).
+        With the team, we delivered a white-label CRM to production; also experienced with
+        <strong>Tailwind CSS</strong>, <strong>CI/CD</strong>, and <strong>C# (.NET)</strong>.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h2>Technical Skills</h2>
+      <p><strong>Front-end:</strong> React.js, TypeScript, JavaScript, HTML5, CSS3, Tailwind CSS, Sass, Less, Ant Design</p>
+      <p><strong>Back-end &amp; data:</strong> Node.js, REST APIs, C# (.NET), MongoDB, SQL, Python</p>
+      <p><strong>Engineering &amp; delivery:</strong> Git, GitHub, Pull Requests, code review, CI/CD, Postman, Jira, Scrum, GitHub
+        Projects</p>
+      <p><strong>Tools:</strong> VS Code, Cursor, Figma, Notion, Yarn, Lovable, n8n, AI agents</p>
+    </section>
+
+    <section>
+      <h2>Professional Experience</h2>
+      <article class="entry">
+        <p class="entry-header">
+          <strong>AGX Software</strong> | <span class="entry-date">Jul 2024 - Present</span>
+        </p>
+        <p class="entry-subtitle">
+          Full Stack Developer (Mid-level I) + Team Lead
+        </p>
+        <ul>
+          <li>
+            Grew from Intern (Jul 2024) to <strong>Full Stack Mid-level I</strong> through
+            <strong>4 promotions</strong>, shipping production work with the team.
+          </li>
+          <li>
+            Lead <strong>4 developers</strong> in <strong>Scrum</strong>: sprint planning,
+            <strong>code review</strong>, <strong>PRs</strong>, and prioritization in
+            <strong>Jira</strong>/<strong>GitHub Projects</strong>.
+          </li>
+          <li>
+            With the team, delivered a white-label CRM (SaaS for credit and consortium) using
+            <strong>React</strong>/<strong>TypeScript</strong>, <strong>REST APIs</strong> in
+            <strong>Node.js</strong>, <strong>MongoDB</strong>/<strong>SQL</strong>, and <strong>CI/CD</strong>.
+          </li>
+          <li>
+            Triage production tickets: classify escalations from support, analyze each case,
+            and assign it to the most capable developer on the team.
+          </li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="projects">
+      <div class="section-title-row">
+        <h2>Selected Projects</h2>
+        <span class="github-note">
+          <a href="https://github.com/RafaelHDSV">github.com/RafaelHDSV</a> (71+ public projects)
+        </span>
+      </div>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">Deprecated-Finder</span> -
+          VS Code/Cursor extension that finds deprecated APIs in the workspace and applies batch
+          fixes from official documentation, reducing rework during refactors.
+          <span class="project-tech">| TypeScript</span>
+        </p>
+      </article>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">MedIT</span> <span class="project-tech">(Capstone)</span> -
+          Web platform to organize queues and care flow in healthcare, focused on reducing
+          operational bottlenecks and centralizing clinical information.
+          <span class="project-tech">| TypeScript, React</span>
+        </p>
+      </article>
+
+      <article class="entry">
+        <p class="project-line">
+          <span class="project-name">Repo-Workspace</span> -
+          CLI that orchestrates sibling monorepos: installs dependencies (Yarn) and runs
+          <em>yarn dev</em> in parallel, cutting repeated manual setup across projects.
+          <span class="project-tech">| JavaScript</span>
+        </p>
+      </article>
+
+    </section>
+
+    <div class="two-col">
+      <section>
+        <h2>Education</h2>
+        <p class="edu-line">
+          <strong>Athon Higher Education (Anhembi Morumbi)</strong> - Systems Analysis and Development, 2024-2026 | Sorocaba, SP
+        </p>
+        <p class="edu-line">
+          <strong>ETEC Rosa Perrone Scavone</strong> - Technical Degree in Systems Development, 2021-2024 | Itatiba, SP
+        </p>
+      </section>
+
+      <section>
+        <h2>Certifications</h2>
+        <p class="certs-line">Oracle OCI Foundations 2025 | MongoDB Node.js Developer Path | Git and Version Control (Ada Tech, 2024)</p>
+        <p class="certs-line">Complete Web Frontend (Udemy, 2026) | Automation with n8n and AI Agents (Udemy, 2026)</p>
+        <p class="certs-line">Vibe Coding with Lovable - From Zero to Sites and Systems with AI (Udemy, 2026)</p>
+      </section>
+    </div>
+
+    <section class="languages">
+      <h2>Languages</h2>
+      <p><strong>Portuguese:</strong> native &nbsp;|&nbsp; <strong>English:</strong> intermediate (technical documentation and
+        team communication)</p>
+    </section>
+    </div>
+  </main>
+</body>
+</html>
