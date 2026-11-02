@@ -6,8 +6,11 @@ Pasta com o currículo em HTML/PDF, otimizado para ATS e vagas de desenvolviment
 
 | Arquivo | Uso |
 |---------|-----|
-| `Currículo.html` | Versão principal — edite aqui |
+| `Currículo.html` | Versão principal (PT) — edite aqui |
 | `Currículo.pdf` | Envio em candidaturas (gerado a partir do HTML) |
+| `Resume.html` | Versão em inglês — edite aqui |
+| `Resume.pdf` | English CV for applications (from Resume.html) |
+| `Resume.docx` | English CV in Word format |
 | `analise-ats.md` | Checklist e notas sobre compatibilidade com ATS |
 | `Currículo_2025.html` | Histórico — não alterar |
 
