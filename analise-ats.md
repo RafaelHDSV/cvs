@@ -130,7 +130,7 @@ Ordem aproximada da extração linear:
 ## Pontos fortes (ATS + recrutador)
 
 1. **Densidade de keywords** sem parecer lista solta — skills categorizadas + repetição na experiência.  
-2. **Uma empresa com narrativa de evolução** — estágio → Pleno I, 4 promoções.  
+2. **Uma empresa com narrativa de evolução** — estágio → Pleno II, 5 promoções.  
 3. **Liderança mensurável** — equipe de 4 pessoas.  
 4. **Projetos com stack explícita** e MedIT marcado como TCC.  
 5. **Certificações nomeadas** com instituição e ano.  
