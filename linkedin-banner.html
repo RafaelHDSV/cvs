@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>LinkedIn banner — Rafael Vieira</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body {
+      width: 1584px;
+      height: 396px;
+      overflow: hidden;
+      background: #0b1220;
+    }
+    .banner {
+      width: 1584px;
+      height: 396px;
+      position: relative;
+      background:
+        radial-gradient(ellipse 80% 120% at 85% 50%, rgba(56, 120, 180, 0.18), transparent 55%),
+        linear-gradient(115deg, #070b14 0%, #0e1628 48%, #101a2e 100%);
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: #f3f6fb;
+      display: flex;
+      align-items: center;
+      /* Keep copy clear of profile photo crop (lower-left on desktop) */
+      padding: 0 0 0 420px;
+    }
+    .banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(90deg, transparent 0%, transparent 28%, black 42%, black 100%);
+      pointer-events: none;
+    }
+    .accent {
+      position: absolute;
+      left: 420px;
+      top: 132px;
+      width: 56px;
+      height: 3px;
+      background: #5b9fd4;
+      border-radius: 2px;
+    }
+    .copy {
+      position: relative;
+      z-index: 1;
+      max-width: 980px;
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 650;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    p {
+      font-size: 28px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #a8b7cc;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="accent" aria-hidden="true"></div>
+    <div class="copy">
+      <h1>Desenvolvedor Full Stack Pleno</h1>
+      <p>React · TypeScript · Node.js · APIs</p>
+    </div>
+  </div>
+</body>
+</html>
