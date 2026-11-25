@@ -2,75 +2,125 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>LinkedIn banner — Rafael Vieira</title>
+  <title>LinkedIn banner B — brand Vieira / getvieira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body {
       width: 1584px;
       height: 396px;
       overflow: hidden;
-      background: #0b1220;
+      background: #0a0a0b;
     }
     .banner {
       width: 1584px;
       height: 396px;
       position: relative;
+      /* getvieira dark + hero mesh */
       background:
-        radial-gradient(ellipse 80% 120% at 85% 50%, rgba(56, 120, 180, 0.18), transparent 55%),
-        linear-gradient(115deg, #070b14 0%, #0e1628 48%, #101a2e 100%);
-      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-      color: #f3f6fb;
+        radial-gradient(ellipse 70% 90% at 72% 45%, rgba(56, 189, 248, 0.16), transparent 58%),
+        radial-gradient(ellipse 50% 70% at 40% 80%, rgba(14, 165, 233, 0.08), transparent 55%),
+        #0a0a0b;
       display: flex;
       align-items: center;
-      /* Keep copy clear of profile photo crop (lower-left on desktop) */
-      padding: 0 0 0 420px;
+      padding: 0 72px 0 420px;
+      font-family: "Outfit", "Segoe UI", sans-serif;
+      color: #f4f4f5;
     }
+    /* Dot grid like hero */
     .banner::before {
       content: "";
       position: absolute;
       inset: 0;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: linear-gradient(90deg, transparent 0%, transparent 28%, black 42%, black 100%);
+      background-image: radial-gradient(rgba(56, 189, 248, 0.22) 1.1px, transparent 1.1px);
+      background-size: 28px 28px;
+      mask-image: radial-gradient(ellipse 75% 80% at 65% 50%, black 20%, transparent 72%);
+      opacity: 0.55;
       pointer-events: none;
     }
-    .accent {
+    .mark {
       position: absolute;
-      left: 420px;
-      top: 132px;
-      width: 56px;
-      height: 3px;
-      background: #5b9fd4;
-      border-radius: 2px;
+      top: 36px;
+      right: 56px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1.5px solid #38bdf8;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Cinzel Decorative", serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: #38bdf8;
+      z-index: 2;
+      background: rgba(10, 10, 11, 0.55);
     }
     .copy {
       position: relative;
       z-index: 1;
       max-width: 980px;
     }
-    h1 {
-      font-size: 52px;
-      font-weight: 650;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 18px;
+    .brand {
+      font-family: "Cinzel Decorative", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: #38bdf8;
+      margin-bottom: 14px;
+      text-transform: uppercase;
     }
-    p {
-      font-size: 28px;
+    .accent {
+      width: 48px;
+      height: 3px;
+      background: #38bdf8;
+      border-radius: 999px;
+      margin-bottom: 18px;
+      box-shadow: 0 0 12px rgba(56, 189, 248, 0.55);
+    }
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      margin-bottom: 16px;
+      color: #f4f4f5;
+    }
+    .stack {
+      font-size: 26px;
       font-weight: 500;
-      letter-spacing: 0.04em;
-      color: #a8b7cc;
+      letter-spacing: 0.03em;
+      color: #a1a1aa;
+    }
+    .stack span {
+      color: #38bdf8;
+    }
+    .url {
+      margin-top: 22px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #71717a;
+      letter-spacing: 0.02em;
+    }
+    .url em {
+      font-style: normal;
+      color: #38bdf8;
     }
   </style>
 </head>
 <body>
   <div class="banner">
-    <div class="accent" aria-hidden="true"></div>
+    <div class="mark" aria-hidden="true">RV</div>
     <div class="copy">
+      <p class="brand">Vieira</p>
+      <div class="accent" aria-hidden="true"></div>
       <h1>Desenvolvedor Full Stack Pleno</h1>
-      <p>React · TypeScript · Node.js · APIs</p>
+      <p class="stack"><span>React</span> · <span>TypeScript</span> · <span>Node.js</span> · <span>APIs</span></p>
+      <p class="url">getvieira.com</p>
     </div>
   </div>
 </body>
